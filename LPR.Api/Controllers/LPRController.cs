@@ -14,7 +14,7 @@ namespace LPR.Api.Controllers
     public class LPRController : ControllerBase
     {
         [HttpPost]
-        public async Task<string> RecognizeAsync(List<IFormFile> files)
+        public async Task<string> Post(List<IFormFile> files)
         {
             long size = files.Sum(f => f.Length);
 
