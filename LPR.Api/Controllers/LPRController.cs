@@ -1,20 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using System.Diagnostics;
 
 namespace LPR.Api.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class LPRController : ControllerBase
+    public class LprController : Controller
     {
         [HttpPost]
-        public async Task<string> Post(List<IFormFile> files)
+        public async Task<string> Recognize(List<IFormFile> files)
         {
             long size = files.Sum(f => f.Length);
 
@@ -60,7 +58,5 @@ namespace LPR.Api.Controllers
             }
             return "Not Found";
         }
-
-
     }
 }

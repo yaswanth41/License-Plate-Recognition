@@ -60,7 +60,7 @@ namespace LPR_GUI
             NameValueCollection values = new NameValueCollection();
             NameValueCollection files = new NameValueCollection();
             files.Add("photo", openFileDialog.FileName);
-            var res = sendHttpRequest("http://35.243.209.31/api/LPR/RecognizeAsync", values, files);
+            var res = sendHttpRequest("http://35.243.209.31/api/Lpr/Recognize", values, files);
             MessageBox.Show(res);
         }
 
