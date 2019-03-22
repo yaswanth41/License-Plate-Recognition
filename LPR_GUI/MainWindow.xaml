@@ -12,7 +12,7 @@
             <Image x:Name="previewImg" HorizontalAlignment="Left" Height="320" Margin="152,49,0,0" VerticalAlignment="Top" Width="480"/>
         </Border>
         <Button x:Name="BtnSelectImg" Content="Select Image File" HorizontalAlignment="Left" Margin="152,381,0,0" VerticalAlignment="Top" Width="209" Height="28" Click="BtnSelectImg_Click"/>
-        <Button x:Name="BtnRecognise" Content="Recognise Number Plate" HorizontalAlignment="Left" Margin="423,381,0,0" VerticalAlignment="Top" Width="209" Height="28" Click="BtnRecognise_Click"/>
+        <Button x:Name="BtnRecognise" Content="Recognise Number Plate" HorizontalAlignment="Left" Margin="423,381,0,0" VerticalAlignment="Top" Width="209" Height="28" Click="PostImage"/>
 
     </Grid>
 </Window>

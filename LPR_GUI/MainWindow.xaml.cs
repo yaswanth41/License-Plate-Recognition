@@ -45,21 +45,6 @@ namespace LPR_GUI
             MessageBox.Show("Initialised");
         }
 
-        private async void BtnRecognise_Click(object sender, RoutedEventArgs e)
-        {
-            //if (matlab == null)
-            //{
-            //    MessageBox.Show("App Not Completed initialization.Please wait.");
-            //    return;
-            //}
-            //matlab.Execute($"fileLoc='{openFileDialog.FileName}'");
-            //var result = matlab.Execute($"run('{BaseDir}/Recogniser/main.m');");
-            //MessageBox.Show(result);
-            //http://35.243.209.31/LPR/Recognize
-
-            PostImage();
-        }
-
         private void BtnSelectImg_Click(object sender, RoutedEventArgs e)
         {
             if (openFileDialog.ShowDialog() == true)
@@ -77,14 +62,15 @@ namespace LPR_GUI
             }
         }
 
-        public void PostImage()
+        public async void PostImage(object sender, RoutedEventArgs e)
         {
             HttpClient httpClient = new HttpClient();
             MultipartFormDataContent form = new MultipartFormDataContent();
 
             byte[] imagebytearraystring = ImageFileToByteArray(openFileDialog.FileName);
             form.Add(new ByteArrayContent(imagebytearraystring, 0, imagebytearraystring.Count()), "photo", openFileDialog.SafeFileName);
-            HttpResponseMessage response = httpClient.PostAsync("http://35.243.209.31/Lpr/Recognize", form).Result;
+            var response = await httpClient.PostAsync("http://35.243.209.31/Lpr/Recognize", form);
+            //HttpResponseMessage response = pa.Result;
             //HttpResponseMessage response = httpClient.PostAsync("http://localhost:5000/Lpr/Recognize", form).Result;
 
             httpClient.Dispose();
