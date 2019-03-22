@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 
-namespace LPR.Api
+namespace Lpr.Api
 {
     public class Program
     {
@@ -19,7 +19,6 @@ namespace LPR.Api
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
-                .UseStartup<Startup>()
-            .UseUrls("http://0.0.0.0:80");
+                .UseStartup<Startup>();
     }
 }

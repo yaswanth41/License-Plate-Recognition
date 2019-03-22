@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.28714.193
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LPR_GUI", "LPR_GUI\LPR_GUI.csproj", "{DA725F52-3F06-4D8B-8EB0-A58579ED519C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LPR.Api", "LPR.Api\LPR.Api.csproj", "{5785CA8E-E78A-46E5-A862-90A06691F9D6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lpr.Api", "Lpr.Api\Lpr.Api.csproj", "{C68FF911-DF24-4AF8-AE80-910E4F711EC7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{DA725F52-3F06-4D8B-8EB0-A58579ED519C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DA725F52-3F06-4D8B-8EB0-A58579ED519C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DA725F52-3F06-4D8B-8EB0-A58579ED519C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5785CA8E-E78A-46E5-A862-90A06691F9D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5785CA8E-E78A-46E5-A862-90A06691F9D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5785CA8E-E78A-46E5-A862-90A06691F9D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5785CA8E-E78A-46E5-A862-90A06691F9D6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C68FF911-DF24-4AF8-AE80-910E4F711EC7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C68FF911-DF24-4AF8-AE80-910E4F711EC7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C68FF911-DF24-4AF8-AE80-910E4F711EC7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C68FF911-DF24-4AF8-AE80-910E4F711EC7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

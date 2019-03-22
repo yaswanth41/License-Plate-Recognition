@@ -7,22 +7,23 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-namespace LPR.Api.Controllers
+namespace Lpr.Api.Controllers
 {
     public class LprController : Controller
     {
-        [HttpPost]
-        public async Task<string> Recognize(List<IFormFile> files)
+        [HttpPost, Consumes("multipart/form-data")]
+        public async Task<string> Recognize()
         {
+            List<IFormFile> files = Request.Form.Files.ToList();
             long size = files.Sum(f => f.Length);
 
-            var filePath = Path.GetTempFileName();
+            var filePath = Path.GetTempPath();
 
             foreach (var formFile in files)
             {
                 if (formFile.Length > 0)
                 {
-                    using (var stream = new FileStream(filePath, FileMode.Create))
+                    using (var stream = new FileStream(filePath + formFile.FileName, FileMode.Create))
                     {
                         await formFile.CopyToAsync(stream);
                     }

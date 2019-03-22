@@ -30,8 +30,8 @@ namespace LPR_GUI
         {
             InitializeComponent();
 
-            Thread th = new Thread(Start_MLApp);
-            th.Start();
+            //Thread th = new Thread(Start_MLApp);
+            //th.Start();
 
             openFileDialog = new OpenFileDialog();
             openFileDialog.Filter = "JPEG Files (*.jpg)|*.jpg|PNG Files (*.png)|*.png";
@@ -55,13 +55,9 @@ namespace LPR_GUI
             //matlab.Execute($"fileLoc='{openFileDialog.FileName}'");
             //var result = matlab.Execute($"run('{BaseDir}/Recogniser/main.m');");
             //MessageBox.Show(result);
-            //http://35.243.209.31/api/LPR/RecognizeAsync
+            //http://35.243.209.31/LPR/Recognize
 
-            NameValueCollection values = new NameValueCollection();
-            NameValueCollection files = new NameValueCollection();
-            files.Add("photo", openFileDialog.FileName);
-            var res = sendHttpRequest("http://35.243.209.31/api/Lpr/Recognize", values, files);
-            MessageBox.Show(res);
+            PostImage();
         }
 
         private void BtnSelectImg_Click(object sender, RoutedEventArgs e)
@@ -79,6 +75,36 @@ namespace LPR_GUI
             {
                 MessageBox.Show("Not Found");
             }
+        }
+
+        public void PostImage()
+        {
+            HttpClient httpClient = new HttpClient();
+            MultipartFormDataContent form = new MultipartFormDataContent();
+
+            byte[] imagebytearraystring = ImageFileToByteArray(openFileDialog.FileName);
+            form.Add(new ByteArrayContent(imagebytearraystring, 0, imagebytearraystring.Count()), "photo", openFileDialog.SafeFileName);
+            HttpResponseMessage response = httpClient.PostAsync("http://localhost:5000/Lpr/Recognize", form).Result;
+
+            httpClient.Dispose();
+            var res = response.Content.ReadAsStringAsync().Result;
+            if(res.Length > 1000)
+            {
+                MessageBox.Show("Server Error. Please Try Again");
+            }
+            else
+            {
+                MessageBox.Show(res);
+            }
+        }
+
+        private byte[] ImageFileToByteArray(string fullFilePath)
+        {
+            FileStream fs = File.OpenRead(fullFilePath);
+            byte[] bytes = new byte[fs.Length];
+            fs.Read(bytes, 0, Convert.ToInt32(fs.Length));
+            fs.Close();
+            return bytes;
         }
 
         private static string sendHttpRequest(string url, NameValueCollection values, NameValueCollection files = null)

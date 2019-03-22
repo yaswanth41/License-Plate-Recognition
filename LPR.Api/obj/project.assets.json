@@ -12539,11 +12539,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\LPR-YB\\LPR_GUI\\LPR.Api\\LPR.Api.csproj",
-      "projectName": "LPR.Api",
-      "projectPath": "D:\\LPR-YB\\LPR_GUI\\LPR.Api\\LPR.Api.csproj",
+      "projectUniqueName": "D:\\LPR-YB\\LPR_GUI\\Lpr.Api\\Lpr.Api.csproj",
+      "projectName": "Lpr.Api",
+      "projectPath": "D:\\LPR-YB\\LPR_GUI\\Lpr.Api\\Lpr.Api.csproj",
       "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-      "outputPath": "D:\\LPR-YB\\LPR_GUI\\LPR.Api\\obj\\",
+      "outputPath": "D:\\LPR-YB\\LPR_GUI\\Lpr.Api\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
