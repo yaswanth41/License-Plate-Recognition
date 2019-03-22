@@ -89,13 +89,19 @@ namespace LPR_GUI
 
             httpClient.Dispose();
             var res = response.Content.ReadAsStringAsync().Result;
-            if(res.Length > 1000)
+            if (res.Length > 1000)
             {
                 MessageBox.Show("Server Error. Please Try Again");
             }
             else
             {
+                var plates = res.Split('-');
+                //for (int i = 1; i < plates.Length; i++)
+                //{
+
+                //}
                 MessageBox.Show(res);
+                MessageBox.Show(plates[1], "Most Confident Plate");
             }
         }
 
