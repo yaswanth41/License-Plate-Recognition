@@ -50,7 +50,7 @@ namespace Lpr.Api.Controllers
                     p.BeginOutputReadLine();
                     p.BeginErrorReadLine();
                     p.WaitForExit();
-                    if (error.Replace(Environment.NewLine, "").Replace(" ", "") == "")
+                    if (error.Replace(Environment.NewLine, "").Replace(" ", "") != "")
                     {
                         return error;
                     }
